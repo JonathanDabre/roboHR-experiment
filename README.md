@@ -1,4 +1,4 @@
-# Langchain Course
+# Langchain 
 
 This course teaches you how to build AI applications using [Langchain](https: //langchain.org/ ) and [OpenAI's API](https: //openai.com/api/ ) with [Next.js](https: //nextjs.org/ ).
 
@@ -6,16 +6,11 @@ This course teaches you how to build AI applications using [Langchain](https: //
 
 To get started, clone this repository and install the dependencies:
 
-Clone the repository
-
-```
-git clone https://github.com/shawnesquivel/openai-javascript-course.git
-```
 
 Navigate to folder
 
 ```
-cd openai-javascript-course
+cd openai-javascript
 ```
 
 Install dependencies from package.json
@@ -34,9 +29,7 @@ yarn dev
 
 Open [http: //localhost :3000](http: //localhost :3000) with your browser to see the app.
 
-## Course Outline
 
-This course covers the following topics:
 
 Introduciton to AI with JavaScript
 
@@ -54,6 +47,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https: //nextjs.org/ docs/deployment) for more details.
 
-## Feedback and Contributions
 
-Your feedback and contributions are welcome! Please feel free to open an issue or submit a pull request.
