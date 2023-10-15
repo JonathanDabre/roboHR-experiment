@@ -1,7 +1,7 @@
 import React from "react";
 
 const ButtonContainer = ({ children }) => {
-  return <div className="flex items-center mb-10 gap-10">{children}</div>;
+  return <div className="flex items-center text-center mx-auto my-4 px-auto justify-center">{children}</div>;
 };
 
 export default ButtonContainer;

@@ -1,5 +1,6 @@
 import React from "react";
 import { sourceCodePro } from "../styles/fonts";
+import {GoPaperAirplane} from "react-icons/go"
 
 const PromptBox = ({
   prompt,
@@ -31,15 +32,15 @@ const PromptBox = ({
           onChange={handlePromptChange}
           onKeyDown={handleKeyDown}
           placeholder={placeHolderText || "Enter your prompt"}
-          className="w-full lg:mr-4 py-2 px-4 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded shadow"
+          className="w-full lg:mr-3 py-4 px-6 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full shadow"
         />
 
         {!disableButton && (
           <button
             onClick={handleSubmit}
-            className={`py-3 px-6 mt-4 lg:mt-0 bg-green-500 shadow text-slate-100 font-semibold rounded-full hover:shadow-xl transition-colors duration-200 uppercase ${sourceCodePro.className}`}
+            className={`py-4 px-6 mt-4 lg:mt-0 bg-green-500 hover:bg-green-600 shadow text-slate-100 font-bold rounded-full hover:shadow-xl transition-colors duration-200 uppercase ${sourceCodePro.className}`}
           >
-            {buttonText || "Enter"}
+            <GoPaperAirplane className="h-6 w-6 font-extrabold" />
           </button>
         )}
       </div>
