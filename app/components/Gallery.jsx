@@ -41,7 +41,7 @@ const Gallery = () => {
 
   return (
     <div className="w-6/12 m-auto flex flex-col gap-4 relative z-1">
-      <ImageCard
+      {/*<ImageCard
         src={items[0].src}
         alt={items[0].alt}
         title={items[0].title}
@@ -56,7 +56,7 @@ const Gallery = () => {
             title={item.title}
           />
         ))}
-      </div>
+      </div>*/}
       {/* <ImageCard src={items[0].src} alt={items[0].alt} title={items[0].title} /> */}
       <div className="grid grid-cols-2 gap-4">
         {items.slice(2).map((item, index) => (
