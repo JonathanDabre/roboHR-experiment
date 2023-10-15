@@ -12,12 +12,12 @@ import Button from "../components/Button";
 const endpoint = "/api/resume-query-metadata";
 
 const ResumeReader = () => {
-  const [prompt, setPrompt] = useState("Who has experience with Python?");
+  const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(null);
 
   const [messages, setMessages] = useState([
     {
-      text: "After loading the vector database, ask me anything about your documents! E.g., Has anyone worked at Meta? Where did Joanna Smith go to school? Does Kaito Esquivel have any recommendations?",
+      text: "Ex. Has anyone worked at meta?",
       type: "bot",
     },
   ]);
@@ -143,7 +143,7 @@ const ResumeReader = () => {
           }
         /> */}
         {/* Changes from here */}
-        <div className="w-full">
+        <div className="w-full" >
           <ButtonContainer>
                   <Button
                     handleSubmit={handleSubmitUpload}
