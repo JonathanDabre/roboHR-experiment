@@ -18,7 +18,7 @@ const PromptBox = ({
   };
   return (
     <>
-      <div className="flex flex-col items-center mb-4">
+      <div className="flex flex-col md:flex-row items-center mb-4">
         {labelText && (
           <label htmlFor="" className="mr-4">
             {labelText}
@@ -31,13 +31,13 @@ const PromptBox = ({
           onChange={handlePromptChange}
           onKeyDown={handleKeyDown}
           placeholder={placeHolderText || "Enter your prompt"}
-          className="w-full mr-4 py-2 px-4 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded shadow"
+          className="w-full lg:mr-4 py-2 px-4 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded shadow"
         />
 
         {!disableButton && (
           <button
             onClick={handleSubmit}
-            className={`py-3 px-6 mt-4 bg-green-500 shadow text-slate-100 font-semibold rounded-full hover:shadow-xl transition-colors duration-200 uppercase ${sourceCodePro.className}`}
+            className={`py-3 px-6 mt-4 lg:mt-0 bg-green-500 shadow text-slate-100 font-semibold rounded-full hover:shadow-xl transition-colors duration-200 uppercase ${sourceCodePro.className}`}
           >
             {buttonText || "Enter"}
           </button>
