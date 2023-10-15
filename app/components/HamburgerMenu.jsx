@@ -108,7 +108,7 @@ const HamburgerMenu = () => {
               </span>
             </a>
           </li>
-          <li className="flex flex-col gap-4">
+          {/* <li className="flex flex-col gap-4">
             <a href="streaming">
               <span>
                 <div className=" rounded-xl overflow-hidden h-40 w-32 drop-shadow">
@@ -129,8 +129,8 @@ const HamburgerMenu = () => {
                 </p>
               </span>
             </a>
-          </li>
-          <li className="flex flex-col gap-4">
+          </li> */}
+          {/* <li className="flex flex-col gap-4">
             <a href="video-chat">
               <span>
                 <div className=" rounded-xl overflow-hidden h-40 w-32 drop-shadow">
@@ -151,8 +151,8 @@ const HamburgerMenu = () => {
                 </p>
               </span>
             </a>
-          </li>
-          <li className="flex flex-col gap-4">
+          </li> */}
+          {/* <li className="flex flex-col gap-4">
             <a href="content-generator">
               <span>
                 <div className=" rounded-xl overflow-hidden h-40 w-32 drop-shadow">
@@ -173,7 +173,7 @@ const HamburgerMenu = () => {
                 </p>
               </span>
             </a>
-          </li>
+          </li> */}
           <li className="flex flex-col gap-4">
             <a href="resume-reader">
               <span>
@@ -196,7 +196,7 @@ const HamburgerMenu = () => {
               </span>
             </a>
           </li>
-          <li className="flex flex-col gap-4">
+          {/* <li className="flex flex-col gap-4">
             <a href="chatcompletions">
               <span>
                 <div className=" rounded-xl overflow-hidden h-40 w-32 drop-shadow">
@@ -217,7 +217,7 @@ const HamburgerMenu = () => {
                 </p>
               </span>
             </a>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>

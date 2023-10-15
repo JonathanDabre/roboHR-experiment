@@ -19,7 +19,7 @@ const ImageCard = ({ src, alt, title }) => (
 );
 
 const Gallery = () => {
-  const items = [
+  /*const items = [
     { src: "/assets/images/pdf.png", alt: "PDF GPT", title: "PDF-GPT" },
     { src: "/assets/images/brain.png", alt: "Memory", title: "Memory" },
     { src: "/assets/images/stream.png", alt: "Stream", title: "Stream" },
@@ -31,6 +31,12 @@ const Gallery = () => {
     },
     { src: "/assets/images/robohr.png", alt: "RoboHR", title: "RoboHR" },
     { src: "/assets/images/tools.png", alt: "Tools", title: "Tools" },
+  ]; */
+
+  const items = [
+    { src: "/assets/images/pdf.png", alt: "PDF GPT", title: "PDF-GPT" },
+    { src: "/assets/images/brain.png", alt: "Memory", title: "Memory" },
+    { src: "/assets/images/robohr.png", alt: "RoboHR", title: "RoboHR" },
   ];
 
   return (
@@ -42,7 +48,7 @@ const Gallery = () => {
         className="h-28"
       />
       <div className="grid grid-cols-3 gap-4">
-        {items.slice(1, 4).map((item, index) => (
+        {items.slice(1, 2).map((item, index) => (
           <ImageCard
             key={index}
             src={item.src}
@@ -51,9 +57,9 @@ const Gallery = () => {
           />
         ))}
       </div>
-      <ImageCard src={items[4].src} alt={items[4].alt} title={items[4].title} />
+      {/* <ImageCard src={items[0].src} alt={items[0].alt} title={items[0].title} /> */}
       <div className="grid grid-cols-2 gap-4">
-        {items.slice(5).map((item, index) => (
+        {items.slice(2).map((item, index) => (
           <ImageCard
             key={index}
             src={item.src}
