@@ -8,13 +8,13 @@ const Footer = () => {
       className={`p-4 bg-gray-800 text-white w-full grid grid-cols-3  bottom-0 ${sourceCodePro.className}`}
     >
       <p className={`text-center ${sourceCodePro.className}`}>
-        By Vasaikars
+        By Jonathan, Alroy & Zane
       </p>
       <p className={`text-center ${sourceCodePro.className}`}>
-        &copy; Kopat {year}
+        &copy; J.A.Z {year}
       </p>
       <p className={`text-center ${sourceCodePro.className}`}>
-        Questions? Visit Farm House
+        Questions? Visit Truq
       </p>
     </footer>
   );

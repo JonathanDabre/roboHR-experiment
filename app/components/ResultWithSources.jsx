@@ -13,8 +13,8 @@ const MessageItem = ({ message, pngFile, isLast }) => {
           <Image
             src={message.type === "user" ? userImage : botImage}
             alt={`${message.type}'s profile`}
-            width={32}
-            height={32}
+            width={40}
+            height={40}
             className="rounded"
             priority
             unoptimized
