@@ -39,7 +39,6 @@ Introduciton to AI with JavaScript
 - Automate Social Media Content generation
 - Deploying a Langchain app for FREE
 
-Each topic has code examples and exercises to help you learn!
 
 ## Deploy on Vercel
 
