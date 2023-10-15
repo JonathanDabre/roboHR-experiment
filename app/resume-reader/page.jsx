@@ -110,7 +110,7 @@ const ResumeReader = () => {
     <>
       <>
         <Title emoji="🤖" headingText="RoboHR" />
-        <TwoColumnLayout
+        {/* <TwoColumnLayout
           leftChildren={
             <>
               <PageHeader
@@ -141,7 +141,29 @@ const ResumeReader = () => {
               />
             </>
           }
-        />
+        /> */}
+        {/* Changes from here */}
+        <div className="w-full">
+          <ButtonContainer>
+                  <Button
+                    handleSubmit={handleSubmitUpload}
+                    endpoint=""
+                    buttonText=" Upload Resumes 📂"
+                  />
+          </ButtonContainer>
+
+          <ResultWithSources messages={messages} pngFile="robohr" />
+
+          <PromptBox
+            prompt={prompt}
+            handlePromptChange={handlePromptChange}
+            handleSubmit={handleSubmit}
+            error={error}
+            placeHolderText={"Enter Prompt"}
+          />
+        </div>
+        
+
       </>
     </>
   );

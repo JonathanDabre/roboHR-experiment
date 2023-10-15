@@ -35,6 +35,7 @@ export default function Home() {
 
         {/* Gallery */}
         <Gallery />
+        
       </div>
       {/*
         <p

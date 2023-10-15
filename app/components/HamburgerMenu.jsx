@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "./hamburgerMenu.css";
 import Image from "next/image";
 import { pressStart2P, sourceCodePro, instrumentSans } from "../styles/fonts";
+import {BsFillArrowDownCircleFill, BsFillArrowUpCircleFill} from 'react-icons/bs';
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,37 +50,38 @@ const HamburgerMenu = () => {
         className="px-4 py-2 shadow m-auto rounded-full border-gray-200"
         onClick={toggleMenu}
       >
-        <img
+        {/* <img
           src="/hamburger.svg"
           alt="Hamburger Icon"
           width="24"
           height="24"
           className="w-full"
-        />
+        /> */}
+        {isOpen ?<BsFillArrowUpCircleFill className="w-[24px] h-[24px]"/> :<BsFillArrowDownCircleFill className="w-[24px] h-[24px]"/>}
       </button>
       <nav
         className={`menu ${
           isOpen ? "open" : ""
-        } rounded-3xl px-12 py-4 flex flex-col justify-center gap-x-4 shadow z-20`}
+        } rounded-b-3xl px-12 py-4 flex flex-col justify-center gap-x-4 shadow z-20`}
       >
-        <p className={`text-center ${pressStart2P.className} mb-4`}>Menu</p>
-        <ul className="flex flex-row gap-4 uppercase">
+        <p className={'text-center text-2xl font-bold mb-4'}>Menu</p>
+        <ul className="flex flex-col gap-4 uppercase">
           <li className="flex flex-col gap-4">
             <a href="/pdf">
               <span>
-                <div className=" rounded-xl overflow-hidden h-40 w-32 drop-shadow">
-                  <div className="absolute inset-0">
-                    <Image
+                <div className=" rounded-xl overflow-hidden  w-32 drop-shadow">
+                  <div className=" inset-0">
+                    {/* <Image
                       src="/assets/images/pdf.png"
                       alt="robot reading newspaper"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <p
-                  className={`text-m font-bold text-gray-200 ${sourceCodePro.className}`}
+                  className={`text-m font-bold text-center text-gray-200 ${sourceCodePro.className}`}
                 >
                   PDF-GPT
                 </p>
@@ -89,19 +91,19 @@ const HamburgerMenu = () => {
           <li className="flex flex-col gap-4">
             <a href="/memory">
               <span>
-                <div className=" rounded-xl overflow-hidden h-40 w-32 drop-shadow">
-                  <div className="absolute inset-0">
-                    <Image
+                <div className=" rounded-xl overflow-hidden  w-32 drop-shadow">
+                  <div className="inset-0">
+                    {/* <Image
                       src="/assets/images/brain.png"
                       alt="robot reading newspaper"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <p
-                  className={`text-m font-bold text-gray-200 ${sourceCodePro.className}`}
+                  className={`text-m font-bold text-center text-gray-200 ${sourceCodePro.className}`}
                 >
                   Memory
                 </p>
@@ -177,19 +179,19 @@ const HamburgerMenu = () => {
           <li className="flex flex-col gap-4">
             <a href="resume-reader">
               <span>
-                <div className=" rounded-xl overflow-hidden h-40 w-32 drop-shadow">
-                  <div className="absolute inset-0">
-                    <Image
+                <div className=" rounded-xl overflow-hidden  w-32 drop-shadow">
+                  <div className=" inset-0">
+                    {/* <Image
                       src="/assets/images/robohr.png"
                       alt="robot reading newspaper"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <p
-                  className={`text-m font-bold text-gray-200 ${sourceCodePro.className}`}
+                  className={`text-m font-bold text-center text-gray-200 ${sourceCodePro.className}`}
                 >
                   RoboHR
                 </p>
