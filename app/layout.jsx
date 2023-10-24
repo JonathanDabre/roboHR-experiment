@@ -4,8 +4,8 @@ import Footer from "./Footer";
 import { instrumentSans } from "./styles/fonts";
 
 export const metadata = {
-  title: "Langchain JavaScript",
-  description: "Learn  the latest AI technologies from Shawn Esquivel.",
+  title: "Robo HR",
+  description: "Robo HR - Intelligent HR Assistant",
 };
 
 export default function RootLayout({ children }) {
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className={`${instrumentSans.className} `}>
         <Navbar />
         <main className="flex flex-col pt-20 px-4">{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
