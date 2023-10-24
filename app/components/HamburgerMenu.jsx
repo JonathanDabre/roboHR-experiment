@@ -81,7 +81,7 @@ const HamburgerMenu = () => {
                   </div>
                 </div>
                 <p
-                  className={`text-m font-bold text-center text-gray-200 ${sourceCodePro.className}`}
+                  className={`text-m font-bold hover:text-white text-center text-gray-200 ${sourceCodePro.className}`}
                 >
                   PDF-GPT
                 </p>
@@ -103,7 +103,7 @@ const HamburgerMenu = () => {
                   </div>
                 </div>
                 <p
-                  className={`text-m font-bold text-center text-gray-200 ${sourceCodePro.className}`}
+                  className={`text-m font-bold hover:text-white text-center text-gray-200 ${sourceCodePro.className}`}
                 >
                   Memory
                 </p>
@@ -191,7 +191,7 @@ const HamburgerMenu = () => {
                   </div>
                 </div>
                 <p
-                  className={`text-m font-bold text-center text-gray-200 ${sourceCodePro.className}`}
+                  className={`text-m hover:text-gray-100 font-bold text-center text-gray-200 ${sourceCodePro.className}`}
                 >
                   RoboHR
                 </p>
