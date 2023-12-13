@@ -30,6 +30,8 @@ export default async function handler(req, res) {
       { pineconeIndex }
     );
 
+    //Jonny You Have to Work Over Here
+
     // Create Vector DBQA CHain
     const model = new OpenAI();
     const chain = VectorDBQAChain.fromLLM(model, vectorStore, {
