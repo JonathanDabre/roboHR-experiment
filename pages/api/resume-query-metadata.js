@@ -33,7 +33,11 @@ export default async function handler(req, res) {
     //Jonny You Have to Work Over Here
 
     // Create Vector DBQA CHain
-    const model = new OpenAI();
+    const model =  new OpenAI({
+      modelName: "gpt-3.5-turbo", // Defaults to "gpt-3.5-turbo-instruct" if no model provided.
+      temperature: 0.3,
+      openAIApiKey: process.env.OPENAI_API_KEY, // In Node.js defaults to process.env.OPENAI_API_KEY
+    });;
     const chain = VectorDBQAChain.fromLLM(model, vectorStore, {
       k: 1,
       returnSourceDocuments: true,

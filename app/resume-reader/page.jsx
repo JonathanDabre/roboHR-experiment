@@ -1,10 +1,7 @@
 "use client";
-
 import React, { useState } from "react";
-import PageHeader from "../components/PageHeader";
 import PromptBox from "../components/PromptBox";
 import Title from "../components/Title";
-import TwoColumnLayout from "../components/TwoColumnLayout";
 import ResultWithSources from "../components/ResultWithSources";
 import ButtonContainer from "../components/ButtonContainer";
 import Button from "../components/Button";
@@ -110,39 +107,6 @@ const ResumeReader = () => {
     <>
       <>
         <Title emoji="🤖" headingText="RoboHR" />
-        {/* <TwoColumnLayout
-          leftChildren={
-            <>
-              <PageHeader
-                heading="Your personal HR assistant"
-                boldText="Get information on a whole lot of documents."
-                description="This tool uses Document Loaders, OpenAI Embeddings, Summarization Chain, Pinecone, VectorDB QA Chain, Prompt Templates, and the Vector Store Agent."
-              />
-
-              <ButtonContainer>
-                <Button
-                  handleSubmit={handleSubmitUpload}
-                  endpoint=""
-                  buttonText=" Upload Resumes 📂"
-                />
-              </ButtonContainer>
-            </>
-          }
-          rightChildren={
-            <>
-              <ResultWithSources messages={messages} pngFile="robohr" />
-
-              <PromptBox
-                prompt={prompt}
-                handlePromptChange={handlePromptChange}
-                handleSubmit={handleSubmit}
-                error={error}
-                placeHolderText={"Enter Prompt"}
-              />
-            </>
-          }
-        /> */}
-        {/* Changes from here */}
         <div className="w-full" >
           <ButtonContainer>
                   <Button
