@@ -23,11 +23,38 @@ const Slider = () => {
         "https://img.freepik.com/premium-photo/portrait-smiling-patient-therapy-office_23-2148759153.jpg",
         "https://media.istockphoto.com/id/1384672095/photo/outdoor-headshot-of-early-50s-multiracial-executive.jpg?s=612x612&w=0&k=20&c=0k4BglYgFiXxHywMtOhT2MR5okUQnOEGIeqJbti13dM=",
         "https://media.istockphoto.com/id/1308600124/photo/businessman-making-video-call-looking-at-camera-and-talking.jpg?s=612x612&w=0&k=20&c=VmWVWDqIsAGu9Bsws3GogwqkyeFxkGB6lm61JBxiX2Q=",
-        "https://www.shutterstock.com/image-photo/portrait-mature-man-smiling-camera-260nw-1581092065.jpg",
+        "https://t3.ftcdn.net/jpg/02/79/78/48/360_F_279784836_4eKMjfIfDtaICKmaSBAyft2Y43u5V76Q.jpg",
         "https://media.istockphoto.com/id/1295105726/photo/mid-aged-man-staying-at-home-during-coronavirus-quarantine.jpg?s=612x612&w=0&k=20&c=b1f5Et2tPVePjrrGXKQr2WA-SOFSlBaTVSoDfjktgEE=",
         "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg"
         // Add more image links here
     ];
+
+    const names = [
+        "John Smith",
+        "Michael Johnson",
+        "David Williams",
+        "James Brown",
+        "Robert Davis",
+        "Daniel Taylor",
+        "William Martinez",
+        "Joseph Anderson",
+        "Richard Thomas",
+        "Charles Wilson"
+      ];
+      
+
+      const reviews = [
+        "Revolutionary AI, transforming how I work!",
+        "Incredible virtual assistant, boosting productivity!",
+        "Game-changer, amazed by this AI!",
+        "Streamlined workflow, boosting productivity!",
+        "Unparalleled accuracy, efficiency with AI!",
+        "Impressed by AI's intelligence, it's magical!",
+        "Exceeds expectations, remarkable AI software!",
+        "Valuable insights, indispensable AI tool!",
+        "Tasks done in minutes, thanks to AI!",
+        "Can't imagine working without this AI!"
+      ];
 
     return (
         <> 
@@ -49,14 +76,18 @@ const Slider = () => {
                 className="mySwiper mb-8"
             >
                 {uniqueKeys.map((key) => (
-                    <SwiperSlide key={key} className='w-[250px]'>
-                        <div className=" h-[250px] rounded-3xl bg-blue-300 ">
-                            <div className="card h-[100%]">
-                                <img className='w-[100%] h-[100%] rounded-3xl' src={imageLinks[key]} alt="" />
+                    <SwiperSlide key={key} className='w-[250px] relative rounded-3xl'>
+                        <div className="h-[250px] rounded-3xl bg-blue-300 relative overflow-hidden">
+                            <div className="h-full w-full absolute top-0 left-0 bg-black bg-opacity-50"></div>
+                            <img className='w-[100%] h-[100%] rounded-3xl' src={imageLinks[key]} alt="" />
+                            <div className="absolute bottom-0 left-0 w-full px-4 py-4 text-white">
+                                <p className="text-sm font-bold text-left">{names[key]}</p>
+                                <p className="text-xs text-left">{reviews[key]}</p>
                             </div>
                         </div>
                     </SwiperSlide>
                 ))}
+
             </Swiper>
         </div>
         </>

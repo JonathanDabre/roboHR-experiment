@@ -66,6 +66,7 @@ const ResumeReader = () => {
         ...prevMessages,
         { text: prompt, type: "user", sourceDocuments: null },
       ]);
+      setPrompt("");
 
       // set loading message
       setMessages((prevMessages) => [
@@ -96,7 +97,7 @@ const ResumeReader = () => {
           sourceDocuments: searchRes.sourceDocuments,
         },
       ]);
-      setPrompt("");
+      
     } catch (err) {
       console.error(err);
       setError(err);

@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 
     // Prompt Template
     const promptTemplate = new PromptTemplate({
-      template: `Assume you are a Human Resources Director. According to the resumes, answer this question: {question}`,
+      template: `You are a HR assistant helping HR to query data from uploaded resumes, answer the questions asked by the users/HR, you're basically having conversation with them. This is what the prompt they have entered:{question}`,
       inputVariables: ["question"],
     });
 

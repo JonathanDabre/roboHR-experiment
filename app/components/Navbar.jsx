@@ -1,26 +1,36 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Link from "next/link";
+import LoadingBar from 'react-top-loading-bar'
+
 
 function Navbar() {
+  const [progress, setProgress] = useState(0)
+
   return (
     <div>
+        <LoadingBar
+            color='#f11946'
+            progress={progress}
+            onLoaderFinished={() => setProgress(0)}
+        />
         <div className="flex flex-row bg-white px-8 py-6 justify-between">
             <div className="flex flex-row space-x-8">
                 <div className="Brand Name text-3xl font-semibold ">
-                    <a href="/" className='cursor-pointer'>
+                    <Link href="/" className='cursor-pointer'>
                         Robo HR
-                    </a>
+                    </Link>
                 </div>
                 <div className="features flex flex-row font-semibold text-sm space-x-6 pt-3 px-2">
                     <div className="feature-1 cursor-pointer">
-                        <a href="/resume-reader">
+                        <Link href="/resume-reader">
                             HR Assistant
-                        </a>
+                        </Link>
                     </div>
                     <div className="feature-2">
-                        <a href="/chat-with-pdf" className='cursor-pointer'>
+                        <Link href="/chat-with-pdf" className='cursor-pointer'>
                             Chat PDF
-                        </a>
+                        </Link>
                     </div>
                     <div className="feature-3">
                         Traditional Parser

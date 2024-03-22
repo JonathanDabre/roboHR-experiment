@@ -24,14 +24,12 @@ export default async function handler(req, res) {
   //   console.log(process.env.PINECONE_INDEX);
   // Always use a try catch block to do asynchronous requests and catch any errors
   try {
-    console.log("just start 1")
+    
     const loader = new DirectoryLoader("/home/jonathan/pbl-project/roboHR-experiment/data/resumes", {
       ".pdf":(path) => new PDFLoader(path, '/pdf')
     })
 
     const docs = await loader.load();
-    console.log(docs)
-    console.log("just start 2")
 
     // console.log(`Loaded: ${docs.length}`);
     
@@ -42,9 +40,8 @@ export default async function handler(req, res) {
       chunkOverlap: 20,
     });
 
-    console.log("just start 3")
+    
     const splitDocs = await splitter.splitDocuments(docs);
-    console.log("just start 4")
 
     // console.log(`Split Docs: ${splitDocs.length}`);
 
@@ -54,11 +51,9 @@ export default async function handler(req, res) {
     // reduce the metadata and make it more searchable
     const reducedDocs = splitDocs.map((doc) => {
       // ["Users", "shawnesquivel", ... "resume_aubrey_graham.pdf"]
-      console.log("just start 5")
       const fileName = doc.metadata.source.split("/").pop();
       // ["resume", "aubrey", "graham.pdf"]
       const [_, firstName, lastName] = fileName.split("_");
-      console.log("just start 6")
 
       return {
         ...doc,
@@ -71,20 +66,16 @@ export default async function handler(req, res) {
     });
 
     // console.log(reducedDocs[4]);
-    console.log("just start 7")
     let summaries = [];
-    console.log("just start 8")
     // const model = new OpenAI({ temperature: 0 });
     const model = new OpenAI({
       modelName: "gpt-3.5-turbo", // Defaults to "gpt-3.5-turbo-instruct" if no model provided.
       temperature: 0.3,
       openAIApiKey: process.env.OPENAI_API_KEY, // In Node.js defaults to process.env.OPENAI_API_KEY
     });
-    console.log("just start 9")
     const summarizeAllChain = loadSummarizationChain(model, {
       type: "map_reduce",
     });
-    console.log("just start 10")
     
     const summarizeRes = await summarizeAllChain.call({
       input_documents: docs,
@@ -92,7 +83,7 @@ export default async function handler(req, res) {
     console.log({summarizeRes})
     console.log("just start 11")
     summaries.push({ summary: summarizeRes.text });
-    console.log("just start 12")
+
 
     /** Summarize each candidate */
     for (let doc of docs) {
@@ -103,7 +94,6 @@ export default async function handler(req, res) {
         input_documents: [doc],
       });
 
-      console.log("just start 13")
       console.log({ summarizeOneRes });
       summaries.push({ summary: summarizeOneRes.text });
     }
