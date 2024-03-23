@@ -10,12 +10,11 @@ import { join } from 'path';
 import { writeFile, unlink } from 'fs/promises';
 import { NextRequest, NextResponse } from 'next/server';
 import { TextLoader } from 'langchain/document_loaders/fs/text'
-import multiparty from 'multiparty';
+
 
 export default async function handler(req: NextRequest) {
     try {
-      
-      console.log(req.formData());
+    
       const data = await req.formData()
       const file: File | null = data.get('file') as unknown as File
     
