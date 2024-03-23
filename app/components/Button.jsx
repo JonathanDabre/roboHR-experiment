@@ -14,7 +14,7 @@ const Button = ({ color, handleSubmit, endpoint, buttonText }) => {
   return (
     <button
       onClick={endpoint ? () => handleSubmit(`/${endpoint}`) : handleSubmit}
-      className={`py-2 px-6 mb-4 rounded-full border border-gray-500 shadow hover:shadow-lg ${colorClass}`}
+      className={`py-2 px-6 mb-2 rounded-full border border-gray-500 shadow hover:shadow-lg ${colorClass}`}
     >
       {buttonText}
     </button>

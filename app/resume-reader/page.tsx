@@ -10,7 +10,32 @@ const endpoint = "/api/resume-query-metadata";
 
 const ResumeReader = () => {
   const [prompt, setPrompt] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string>();
+  const [submitted, setSubmitted] = useState(false);
+  const [file, setFile] = useState<File >();
+
+ 
+  const handleUploadClick = async (e: React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault()
+
+    if(!file) return  //Return if theres no file
+    
+    try {
+      const formData = new FormData()
+      formData.set('file',file)
+      console.log(typeof(formData))
+      console.log(formData)
+      const result = await fetch('/api/setup', {
+        method: "POST",
+        body: formData
+      })
+      const json = await result.json()
+      setSubmitted(true)
+      console.log('result: ', json)
+    } catch (err) {
+      console.log('err:', err)
+    }
+  }
 
   const [messages, setMessages] = useState([
     {
@@ -105,19 +130,25 @@ const ResumeReader = () => {
   };
 
   return (
-    <>
       <>
-        <Title emoji="🤖" headingText="RoboHR" />
         <div className="w-full" >
           <ButtonContainer>
+              <form onSubmit={handleUploadClick} className="flex flex-col sm:flex-row" >
+                <input type="file" name="file"   onChange={(e) => setFile(e.target.files?.[0])} className={` ${submitted?"hidden":""} file:cursor-pointer my-2  text-xs sm:text-sm file:text-sm file:py-1 sm:file:py-3 file:px-4 file:rounded-full file:text-white file:shadow-none   file:bg-[#007C7C] file:hover:bg-[#007c87] file:border-none`}/>
+                <input type="submit" value='Submit' className={` ${submitted?"hidden":""} doc-upload-button cursor-pointer hover:bg-[#93c9c9] bg-[#EDFFFF] border border-[#007C7C] text-[#007C7C] font-semibold my-2 py-1 sm:py-3 px-8 text-sm rounded-full`}/>             
+              </form>
+                
+          </ButtonContainer>
+          <ButtonContainer>
                   <Button
+                    color={""}
                     handleSubmit={handleSubmitUpload}
                     endpoint=""
                     buttonText=" Upload Resumes 📂"
                   />
           </ButtonContainer>
 
-          <ResultWithSources messages={messages} pngFile="robohr" />
+          <ResultWithSources maxMsgs={""} messages={messages} pngFile="robohr" />
 
           <PromptBox
             prompt={prompt}
@@ -125,12 +156,14 @@ const ResumeReader = () => {
             handleSubmit={handleSubmit}
             error={error}
             placeHolderText={"Enter Prompt"}
+            buttonText="Submit"
+            disableButton={false}
+            labelText="Prompt:"
           />
         </div>
         
 
       </>
-    </>
   );
 };
 

@@ -18,11 +18,7 @@ import { loadSummarizationChain } from "langchain/chains";
 import { OpenAI } from "langchain/llms/openai";
 
 export default async function handler(req, res) {
-  // Grab the prompt from the url (?prompt=[value])
-  //   console.log(process.env.PINECONE_API_KEY);
-  //   console.log(process.env.PINECONE_ENVIRONMENT);
-  //   console.log(process.env.PINECONE_INDEX);
-  // Always use a try catch block to do asynchronous requests and catch any errors
+ 
   try {
     
     const loader = new DirectoryLoader("/home/jonathan/pbl-project/roboHR-experiment/data/resumes", {
@@ -30,10 +26,6 @@ export default async function handler(req, res) {
     })
 
     const docs = await loader.load();
-
-    // console.log(`Loaded: ${docs.length}`);
-    
-    // Split the documents with their metadata
     const splitter = new CharacterTextSplitter({
       separator: " ",
       chunkSize: 200,
@@ -42,17 +34,8 @@ export default async function handler(req, res) {
 
     
     const splitDocs = await splitter.splitDocuments(docs);
-
-    // console.log(`Split Docs: ${splitDocs.length}`);
-
-    // console.log(docs[0]);
-    // console.log(splitDocs[0]);
-
-    // reduce the metadata and make it more searchable
     const reducedDocs = splitDocs.map((doc) => {
-      // ["Users", "shawnesquivel", ... "resume_aubrey_graham.pdf"]
       const fileName = doc.metadata.source.split("/").pop();
-      // ["resume", "aubrey", "graham.pdf"]
       const [_, firstName, lastName] = fileName.split("_");
 
       return {
@@ -65,13 +48,11 @@ export default async function handler(req, res) {
       };
     });
 
-    // console.log(reducedDocs[4]);
     let summaries = [];
-    // const model = new OpenAI({ temperature: 0 });
     const model = new OpenAI({
-      modelName: "gpt-3.5-turbo", // Defaults to "gpt-3.5-turbo-instruct" if no model provided.
+      modelName: "gpt-3.5-turbo",
       temperature: 0.3,
-      openAIApiKey: process.env.OPENAI_API_KEY, // In Node.js defaults to process.env.OPENAI_API_KEY
+      openAIApiKey: process.env.OPENAI_API_KEY, 
     });
     const summarizeAllChain = loadSummarizationChain(model, {
       type: "map_reduce",
